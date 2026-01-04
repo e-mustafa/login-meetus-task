@@ -1,5 +1,5 @@
+import LoginLayout from '@/components/auth/login-layout';
+
 export default function LoginPage() {
-   return (
-      <div>LoginPage</div>
-   )
+	return <LoginLayout />;
 }
