@@ -1,10 +1,10 @@
 'use server';
 
-import { isPROD } from '@/configs/general';
+import { apiURL, isPROD } from '@/configs/general';
 import { TLoginSchema } from '@/validation/login.validation';
 import { cookies } from 'next/headers';
 
-const API_BASE_URL = 'https://api-yeshtery.dev.meetusvr.com/v1';
+// const API_BASE_URL = 'https://api-yeshtery.dev.meetusvr.com/v1';
 
 type LoginResponse = {
 	token: string;
@@ -42,7 +42,7 @@ export async function getUserInfo(token?: string): Promise<UserInfoResponse | nu
 
 		if (!accessToken) return null;
 
-		const res = await fetch(`${API_BASE_URL}/user/info`, {
+		const res = await fetch(`${apiURL}/user/info`, {
 			method: 'GET',
 			headers: {
 				'Content-Type': 'application/json',
@@ -63,7 +63,7 @@ export async function getUserInfo(token?: string): Promise<UserInfoResponse | nu
 export async function loginAction(prevState: ActionState, formData: TLoginSchema): Promise<ActionState> {
 	try {
 		// Step 1: Login API call
-		const loginResponse = await fetch(`${API_BASE_URL}/yeshtery/token`, {
+		const loginResponse = await fetch(`${apiURL}/yeshtery/token`, {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify({
