@@ -21,7 +21,7 @@ export default function LoginLayout() {
 					<LoginForm />
 
 					<div className='text-[#62626B] text-sm'>
-						Don't have an account?
+						Don&apos;t have an account?
 						<Link href='#'>Sign up</Link>
 					</div>
 				</div>
